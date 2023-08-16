@@ -1,0 +1,61 @@
+﻿@model List<ClienteModel>
+@{
+    ViewData["Title"] = "Listar";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card">
+                <div class="card-header">
+                    <div class="row text-center">
+                        <div class="col-md-6">
+                            <h5 class="card-title mt-2">Clientes</h5>
+                        </div>
+                        <div class="col-md-6">
+                            <a asp-action="Guardar" asp-controller="Mantenedor" class="btn btn-primary w-50">Agregar Cliente</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <table class="table text-center">
+                        <thead>
+                            <tr>
+                                <th scope="col">#</th>
+                                <th scope="col">Nombre</th>
+                                <th scope="col">Email</th>
+                                <th scope="col">Direccion</th>
+                                <th scope="col">Telefono</th>
+                                <th scope="col">Cedula</th>
+                                <th scope="col">Fecha nacimiento</th>
+                                <th scope="col">Estado</th>
+                                <th scope="col">Accion</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in Model)
+                            {
+                                <tr>
+                                    <th scope="row">@item.idCli</th>
+                                    <td>@item.nombre</td>
+                                    <td>@item.email</td>
+                                    <td>@item.direccion</td>
+                                    <td>@item.telefono</td>
+                                    <td>@item.cedula</td>
+                                    <td>@item.fecha_nac</td>
+                                    <td>@item.estado</td>
+                                    <td>
+                                        <a asp-action="Editar" asp-controller="Mantenedor" class="btn btn-warning" asp-route-idCli="@item.idCli">Editar</a>
+                                        <a asp-action="Eliminar" asp-controller="Mantenedor" class="btn btn-danger" asp-route-idCli="@item.idCli">Eliminar</a>
+                                    </td>
+                                </tr>
+                            }
+                            
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

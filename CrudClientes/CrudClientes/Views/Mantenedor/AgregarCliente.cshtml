@@ -1,0 +1,74 @@
+﻿@model ClienteModel
+@{
+    ViewData["Title"] = "AgregarCliente";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+
+<div class="card text-center">
+    <div class="card-header">
+        <h5>Crear contacto</h5>
+    </div>
+    <form asp-action="Guardar" asp-controller="Mantenedor" method="post">
+        <div class="card-body">
+            <div class="row g-3">
+                <div class="col-md-6">
+                    <label for="nombre" class="form-label">Nombre</label>
+                    <input type="text" class="form-control" asp-for="nombre">
+                    <div asp-validation-for="nombre" class="alert " role="alert">
+                        
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <label for="email" class="form-label">Correo</label>
+                    <input type="text" class="form-control" asp-for="email">
+                    <div asp-validation-for="email" class="alert " role="alert">
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <label for="direccion" class="form-label">direccion</label>
+                    <input type="text" class="form-control" asp-for="direccion">
+                    <div asp-validation-for="direccion" class="alert " role="alert">
+                        
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <label for="telefono" class="form-label">telefono</label>
+                    <input type="text" class="form-control" asp-for="telefono">
+                    <div asp-validation-for="telefono" class="alert " role="alert">
+                        
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <label for="cedula" class="form-label">cedula</label>
+                    <input type="text" class="form-control" asp-for="cedula">
+                    <div asp-validation-for="cedula" class="alert " role="alert">
+                        
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <label for="fecha_nac" class="form-label">Fecha nacimiento</label>
+                    <input type="text" class="form-control" asp-for="fecha_nac">
+                    <div asp-validation-for="fecha_nac" class="alert " role="alert">
+                        
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <label for="estado" class="form-label">Estado</label>
+                    <select asp-for="estado" class="form-select">
+                        <option selected value="1">Activo</option>
+                        <option value="0">Inactivo</option>
+                    </select>
+                    <div asp-validation-for="estado" class="alert " role="alert">
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="card-footer text-center">
+            <button type="submit" class="btn btn-primary w-25 p-3">Guardar</button>
+            <a class="btn btn-danger w-25 p-3">Cancelar</a>
+        </div>
+    </form>
+</div>
